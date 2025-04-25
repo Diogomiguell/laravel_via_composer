@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class ContatoController extends Controller
 {
-    public function contato() 
+    public function contato()
     {
-        echo 'Contato';
+        #Carregar View
+        return view('site.contato');
     }
 }
