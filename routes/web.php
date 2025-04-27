@@ -29,7 +29,6 @@ Route::prefix('/app')->group(function() {
 });
 
 #Parâmetos em rotas
-
 //nome, categoria, assunto, mensagem
 /* Route::get(
     '/contato/{nome}/{categoria}/{assunto}/{mensagem}', 
@@ -62,3 +61,18 @@ Route::get(
     }
 )->where('categoria_id', '[0-9]+')
 ->where('nome', '[A-Za-z]+'); */
+
+#Redirecionamento de rotas
+Route::get('/rota1', function() {
+    echo "Rota 1";
+})->name('site.rota1');
+
+Route::get('/rota2', function() {
+    return redirect()->route('site.rota1');
+})->name('site.rota2');
+
+//Route::redirect('/rota2', 'rota1');
+
+Route::fallback(function() {
+    echo 'A rota acessada não existe. <a href="'.route('site.index').'">Clique aqui </a>para voltar à página principal!';
+});
