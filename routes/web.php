@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\ContatoController;
+use App\Http\Controllers\FornecedorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\SobreNosController;
+use App\Http\Controllers\TesteController;
 
 /* Route::get('/', function () {
     return view('welcome');
@@ -24,7 +26,7 @@ Route::get('/login', function() { return 'login'; })->name('site.login');
 #Utilizando prefixo
 Route::prefix('/app')->group(function() {
     Route::get('/clientes', function() { return 'clientes'; })->name('app.clientes');
-    Route::get('/fornecedores', function() { return 'fornecedores'; })->name('app.fornecedores');
+    Route::get('/fornecedores', [FornecedorController::class, 'index'])->name('app.fornecedores');
     Route::get('/produtos', function() { return 'produtos'; })->name('app.produtos');
 });
 
@@ -76,3 +78,8 @@ Route::get('/rota2', function() {
 Route::fallback(function() {
     echo 'A rota acessada não existe. <a href="'.route('site.index').'">Clique aqui </a>para voltar à página principal!';
 });
+
+#Parâmetros com controladores
+Route::get('/teste/{p1}/{p2}', [TesteController::class, 'teste'])->name('site.teste')
+->where('p1', '[0-9]+')
+->where('p2', '[0-9]+');
