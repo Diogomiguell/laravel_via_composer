@@ -10,6 +10,6 @@ class ContatoController extends Controller
     public function contato()
     {
         #Carregar View
-        return view('site.contato');
+        return view('site.contato', ['titulo' => 'Contato (teste)']);
     }
 }
