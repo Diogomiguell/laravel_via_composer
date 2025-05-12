@@ -9,6 +9,9 @@ class ContatoController extends Controller
 {
     public function contato()
     {
+        //var_dump($_GET);
+        //var_dump($_POST);
+        
         #Carregar View
         return view('site.contato', ['titulo' => 'Contato (teste)']);
     }

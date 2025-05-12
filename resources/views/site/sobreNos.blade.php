@@ -2,9 +2,7 @@
 
 @section('titulo', 'Sobre Nós') {{-- usando uma string como título --}}
 
-@section('content') {{-- section que está com o mesmo nome do yeld do layout --}}
-    <div class="topo">
-
+@section('content') {{-- section que está com o mesmo nome do yeld do layout --}}   
         <div class="logo">
             <img src="{{ asset('/img/logo.png') }}">
         </div>
